@@ -1,0 +1,116 @@
+body {
+	font-family: helvetica;
+	background-color: rgb(230, 244, 238);
+}
+
+ul {
+	 list-style-type: none;
+	  padding-left:0;
+}
+
+.firstHalf {
+	color: yellow;
+}
+
+#addGroup {
+	width: 107px;
+	border-radius: 10px;
+	height: 30px;
+}
+
+#addAnnouncement {
+	width: 457px;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.addAnBtn {
+	margin-left: 172px ;
+	/*border: 1px solid;*/
+	width: 210px;
+}
+
+.announcements {
+	margin:10px ;
+	text-align: center;
+	border: 1px solid;
+}
+.announcer {
+	width: 800px;
+	height: 733px;
+  border: 1px solid;
+  margin-left: 40px;
+  float: left;
+	background-color: white;
+
+}
+
+.content {
+	background-color: rgb(160, 240, 250);
+	width: 95%;
+	padding-top: 40px;
+	height: 763px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+.groups {
+	border: 1px solid;
+	width: 347px;
+	height: 400px;
+	float: right;
+ 	margin-right: 32px;
+ 	text-align: center;
+ 	background-color: #FFFFFF;
+}
+
+.clear {
+	clear: both;
+}
+
+.navItems {
+	border: 1px solid;
+	height: 30px;
+	padding: 15px;
+}
+
+.announceTitle {
+	/*border: 1px solid;*/
+	font-size: 35px;
+	margin-bottom: 0px;
+}
+
+.announceGroup {
+	margin-top: 0px;
+}
+
+.headBanner {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	border-radius: 20px;
+	background-color: rgb(160, 240, 250);
+	height: 250px;
+	text-align: center;
+}
+
+.title {
+	/*border: 1px solid;*/
+	padding-top: 5px;
+	/*padding-left: 37%;*/
+	/*position: relative;*/
+	/*margin: auto*/
+}
+
+.subTitle {
+	margin-top: 0px;
+}
+
+.tText {
+	margin-bottom: 0px;
+	font-size: 85px;
+}
+
