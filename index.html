@@ -32,7 +32,7 @@
 			    </div>
 			</nav>
 
-			<div>
+			<div ng-controller="announcementController">
 				<div class="col-md-5">
 					<div class="input-group">
 				      <span class="input-group-btn">
@@ -42,61 +42,44 @@
 				    </div>
 				</div>
 
-				<main class="col-md-8 announceArt well">
+				<main class="col-md-8 announceArt well" >
 					
 					<div class="form-group">
-						
 						<label for="newTitle" class="label label-success">Title</label>
-						<input type="text" name="newTitle" class="form-control" placeholder="Title">
+						<input type="text" name="newTitle" class="form-control" placeholder="Title" ng-model="title">
 						<br>
 						<label for="newAnnouncement" class="label label-success">Announce !!</label>
-						<textarea name="newAnnouncement" class="form-control" placeholder="Details.."></textarea>
+						<textarea name="newAnnouncement" class="form-control" placeholder="Details.." ng-model="details"></textarea>
 						<br>
 						<div class="pull-right">
-							<button class="btn btn-primary">
+							<button class="btn btn-primary" ng-click="postAnnouncement()">
 								<strong>Post Announcement</strong>
 							</button>
-
 						</div>
-
-						<div class="pull-right">
-							<select class="form-control" >
-							  <option value="volvo" selected>Staff</option>
-							  <option value="saab">Student</option>
-							  <option value="vw">Officer</option>
+						<div class="pull-right marginSide">
+							<select class="form-control" ng-model="group">
+								<option style="display:none" value class>select a group</option>
+								<option ng-repeat="group in groups" value="{{group.groupName}}">
+									{{group.groupName}}
+								</option>
 							</select>
 						</div>
-
-						
 						<div class="clear"></div>
-					
 					</div>
-					<article class="announcements">
+
+					<article class="announcements" ng-repeat="announcement in announcements">
 						<cite class="pull-right">
-							today
+							{{announcement.date}}
 						</cite>
 						<div class="clear"></div>
 						<h2 class="announceTitle">
-							Test
+							{{announcement.title}}
 						</h2>
 						<h5 class="announceGroup">
-							Tester
+							{{announcement.group}}
 						</h5>
 						<p class="announceContent">
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</p>
-
-					</article>
-					
-					<article class="announcements">
-						<h2 class="announceTitle">
-							Test
-						</h2>
-						<h5 class="announceGroup">
-							Tester
-						</h5>
-						<p class="announceContent">
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+							{{announcement.details}}
 						</p>
 					</article>
 					
@@ -107,15 +90,14 @@
 							Groups
 						</h1>
 						<ul class="nav nav-pills nav-stacked">
-							<li role="presentation" class="active">
-							<a href="#">	All</a>
+							<li class="active">
+							<a href="">All</a>
 							</li>
-							<li role="presentation">
-							<a href="#">	Student</a>
+
+							<li ng-repeat="group in groups">
+								<a href="">{{group.groupName}}</a>
 							</li>
-							<li role="presentation">
-							<a href="#">	Officer</a>
-							</li>
+							
 						</ul>
 						<button class="btn btn-success">Add Group</button>
 					</dive>

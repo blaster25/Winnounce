@@ -26,6 +26,10 @@ ul {
 	margin: 0 4px 5% 4px;
 }
 
+.marginSide {
+	margin: 0 4px 0 4px;
+}
+
 .center{
 	text-align: center;
 }
