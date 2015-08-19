@@ -1,0 +1,35 @@
+.announcements {
+	background-color: white;
+	border-radius: 15px;
+
+}
+
+.showAnnounce {
+	text-align: center;
+	background-color: white;
+	padding: 10px;
+	border-radius: 15px;
+	color: black;
+}
+
+.announcedDate {
+	margin-right: 10px;
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.aLink:link {
+	color: #FF0000;
+    text-decoration: none;
+}
+
+a {
+	color: #FF0000;
+}
+
+.detail {
+	text-align: justify;
+}

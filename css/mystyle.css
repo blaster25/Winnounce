@@ -8,9 +8,52 @@ ul {
 	  padding-left:0;
 }
 
-.firstHalf {
-	color: yellow;
+.announceArt {
+	
+	height: 500px;
+	overflow: scroll;
 }
+.colored2 {
+	padding: 5px;
+	background-color: green;
+}
+
+.navMargin {
+	margin: 4% 4px 0 4px;
+}
+
+.navMargin {
+	margin: 0 4px 5% 4px;
+}
+
+.center{
+	text-align: center;
+}
+
+.firstHalf {
+	color: #C2E02B;
+}
+
+.secHalf {
+	font-size: 68px;
+	/*color: #0D7A9E;*/
+}
+
+.loginView {
+	margin-top: 10px;
+}
+
+.loginGroup {
+	width: 30%;
+	margin: auto;
+	background-color: white;
+	padding: 10px;
+	border: 1px solid;
+	border-radius: 5px;
+
+}
+
+.centerEl {margin: auto;}
 
 #addGroup {
 	width: 107px;
@@ -46,9 +89,11 @@ ul {
 }
 
 .content {
-	background-color: rgb(160, 240, 250);
+	background-color: #698B96;
 	width: 95%;
-	padding-top: 40px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 	height: 763px;
 	margin-left: auto;
 	margin-right: auto;
@@ -92,7 +137,7 @@ ul {
 	margin-right: auto;
 	width: 95%;
 	border-radius: 20px;
-	background-color: rgb(160, 240, 250);
+	background-color: #C7507B;
 	height: 250px;
 	text-align: center;
 }
