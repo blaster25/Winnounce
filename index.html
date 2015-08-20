@@ -24,8 +24,13 @@
 		<div class="content">
 			<nav class="navbar navbar-default navMargin2">
 			  <div class="container-fluid">
+			  	<ul class="nav navbar-nav">
+			  		<li class="active">
+			  			<a class="navbar-brand" href="#">Announcements</a>
+			  		</li>
+			  	</ul>
 			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="#">About</a></li>
+			        <li ><a href="#">About</a></li>
 			        <li><a href="#">Profile</a></li>
 			        <li><a href="#">Logout</a></li>
 			      </ul>
@@ -38,15 +43,17 @@
 				      <span class="input-group-btn">
 				        <button class="btn btn-default" type="button">Go!</button>
 				      </span>
-				      <input type="text" class="form-control" placeholder="Search for...">
+				      <input type="text" class="form-control" placeholder="Search for title" ng-model="search" >
 				    </div>
 				</div>
 
 				<main class="col-md-8 announceArt well" >
 					
-					<div class="form-group">
-						<label for="newTitle" class="label label-success">Title</label>
-						<input type="text" name="newTitle" class="form-control" placeholder="Title" ng-model="title">
+					<div class="form-group announcerForm">
+						<div class="newTitle">
+							<label for="newTitle" class="label label-success">Title</label>
+							<input type="text" name="newTitle" class="form-control" placeholder="Title" ng-model="title">
+						</div>
 						<br>
 						<label for="newAnnouncement" class="label label-success">Announce !!</label>
 						<textarea name="newAnnouncement" class="form-control" placeholder="Details.." ng-model="details"></textarea>
@@ -67,7 +74,7 @@
 						<div class="clear"></div>
 					</div>
 
-					<article class="announcements" ng-repeat="announcement in announcements">
+					<article class="announcements" ng-repeat="announcement in announcements | filter: search">
 						<cite class="pull-right">
 							{{announcement.date}}
 						</cite>
@@ -93,14 +100,37 @@
 							<li class="active">
 							<a href="">All</a>
 							</li>
-
 							<li ng-repeat="group in groups">
 								<a href="">{{group.groupName}}</a>
 							</li>
-							
 						</ul>
-						<button class="btn btn-success">Add Group</button>
-					</dive>
+						
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Group</button>
+
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+							<div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							    	<div class="modal-header">
+							    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							    		<h4 class="modal-title" id="exampleModalLabel"> 
+							    			<strong> Add Group </strong> 
+							    		</h4>
+							    	</div>
+							    	<div class="modal-body">
+								        <div class="form-group">
+								        	<label for="recipient-name" class="label label-default">Group Name</label>
+								        	<input type="text" class="form-control" ng-model="groupName">
+								        </div>
+							    	</div>
+							    	<div class="modal-footer">
+							    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							    		<button type="button" class="btn btn-primary" ng-click="addNewGroup()">Save</button>
+							    	</div>
+							    </div>
+							</div>
+						</div>
+
+					</div>
 				</aside>
 			</div>
 		</div>

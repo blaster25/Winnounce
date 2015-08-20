@@ -18,8 +18,11 @@ winnounce.controller("announcementController", function ($scope, announcementFac
 		$scope.details="" 
 	};
 
+	$scope.addNewGroup = function (){ 
+		groupFactory.addGroup( { groupName: $scope.groupName } )
+		$scope.groupName = "";
+		};
 
-console.log("awdaw1");
 } );
 
 winnounce.controller("groupController", function ($scope, groupFactory) {
