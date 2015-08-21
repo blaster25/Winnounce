@@ -25,38 +25,36 @@
 			<nav class="navbar navbar-default navMargin2">
 			  <div class="container-fluid">
 			  	<ul class="nav navbar-nav">
-			  		<li class="active">
-			  			<a class="navbar-brand" href="#">Announcements</a>
+			  		<li>
+			  			<a class="navbar-brand" href="#"> <i class="glyphicon glyphicon-home"></i> Announcements</a>
 			  		</li>
 			  	</ul>
 			      <ul class="nav navbar-nav navbar-right">
 			        <li ><a href="#">About</a></li>
-			        <li><a href="#">Profile</a></li>
-			        <li><a href="#">Logout</a></li>
+			        <li ><a id="profileLink" href="#">Profile</a></li>
+			        <li ><a href="login.html">Logout</a></li>
 			      </ul>
 			    </div>
 			</nav>
 
 			<div ng-controller="announcementController">
-				<div class="col-md-5">
+
+				<div class="col-md-5 noPadding">
 					<div class="input-group">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-				      <input type="text" class="form-control" placeholder="Search for title" ng-model="search" >
+				    	<input type="text" class="form-control" placeholder=" Search Title.. " ng-model="search" >
 				    </div>
 				</div>
-
+				
 				<main class="col-md-8 announceArt well" >
 					
 					<div class="form-group announcerForm">
 						<div class="newTitle">
 							<label for="newTitle" class="label label-success">Title</label>
-							<input type="text" name="newTitle" class="form-control" placeholder="Title" ng-model="title">
+							<input type="text" name="newTitle" id="announceTitle" class="form-control" placeholder="Title" ng-model="title" required>
 						</div>
 						<br>
 						<label for="newAnnouncement" class="label label-success">Announce !!</label>
-						<textarea name="newAnnouncement" class="form-control" placeholder="Details.." ng-model="details"></textarea>
+						<textarea name="newAnnouncement" id="announceDet" class="form-control" placeholder="Details.." ng-model="details"></textarea>
 						<br>
 						<div class="pull-right">
 							<button class="btn btn-primary" ng-click="postAnnouncement()">
@@ -64,8 +62,8 @@
 							</button>
 						</div>
 						<div class="pull-right marginSide">
-							<select class="form-control" ng-model="group">
-								<option style="display:none" value class>select a group</option>
+							<select id="announceGroup" class="form-control" ng-model="group">
+								<option style="display:none" value disabled selected>select a group</option>
 								<option ng-repeat="group in groups" value="{{group.groupName}}">
 									{{group.groupName}}
 								</option>
@@ -74,7 +72,11 @@
 						<div class="clear"></div>
 					</div>
 
-					<article class="announcements" ng-repeat="announcement in announcements | filter: search">
+					<article class="announcements" ng-repeat="announcement in announcements | filter: search | orderBy : expression : reverse">
+						<button class="pull-left btn btn-danger closeBtn" ng-click="removeAnnouncement($index)">
+							<strong>X</strong>
+						</button>
+
 						<cite class="pull-right">
 							{{announcement.date}}
 						</cite>
@@ -88,9 +90,13 @@
 						<p class="announceContent">
 							{{announcement.details}}
 						</p>
+
+						<a class="pull-right" ng-click="editAnnouncement($index)">Edit</a>
+						<div class="clear"></div>
 					</article>
 					
 				</main>
+
 				<aside class="col-md-4">
 					<div class="well">
 						<h1 class="navtitle">
@@ -132,6 +138,7 @@
 
 					</div>
 				</aside>
+
 			</div>
 		</div>
 	</section>
@@ -142,5 +149,7 @@
 	<script src="components/angular/angular.js"></script>
 	<script src="components/angular/angular-route.js"></script>
 	<script src="js/ngmodule/announcer.js"></script>
+	<script src="js/home.js"></script>
+	
 </body>
 </html>

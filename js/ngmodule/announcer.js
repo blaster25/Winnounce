@@ -2,20 +2,42 @@ var winnounce = angular.module("winnouncer" , []);
 
 winnounce.controller("announcementController", function ($scope, announcementFactory, groupFactory) {
 	
+	$scope.isPost = true;
 	$scope.announcements = announcementFactory.getAnnouncements();
 	$scope.groups = groupFactory.getGroups();
 
 	$scope.postAnnouncement = function () {
+		
+		var now = new Date();
+
+		if ($scope.title != null || $scope.group != "" || $scope.details !=null ) {
 		announcementFactory.addAnnouncement({
 												title: $scope.title, 
 												group: $scope.group, 
 												details: $scope.details, 
-												date: "today"
+												date: now
 												}
 											);
-		$scope.title="" 
-		$scope.group=""
-		$scope.details="" 
+		$scope.title= null; 
+		$scope.group= "";
+		$scope.details= null;
+		} else {
+			console.log("oasd");
+		}
+	};
+
+	$scope.editAnnouncement = function (indexNum) {
+		$scope.title = $scope.announcements[indexNum].title;
+		$scope.group = $scope.announcements[indexNum].group;
+		$scope.details = $scope.announcements[indexNum].details;
+		$scope.isPost = false;
+	};
+
+	$scope.removeAnnouncement = function (indexNum) {
+		if (confirm("Do you want to delete this announcement ?")) {
+			announcementFactory.deleteAnnouncement(indexNum);
+		}
+		
 	};
 
 	$scope.addNewGroup = function (){ 
@@ -34,7 +56,7 @@ winnounce.controller("groupController", function ($scope, groupFactory) {
 winnounce.factory("announcementFactory", function(){
 		var factory = {};
 
-		var announcementsF = [
+		var announcements = [
 				{
 					title: 'Class Suspended',
 					group: 'students',
@@ -62,11 +84,15 @@ winnounce.factory("announcementFactory", function(){
 			];
 
 			factory.addAnnouncement = function (data){
-				announcementsF.push(data);
+				announcements.push(data);
 			};
 
 			factory.getAnnouncements = function (){
-				return announcementsF;
+				return announcements;
+			};
+
+			factory.deleteAnnouncement = function (indexNum){
+				announcements.splice(indexNum,1);
 			};
 
 		return factory;

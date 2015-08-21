@@ -3,39 +3,41 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Welcome To Winnounce</title>
-	<link rel="stylesheet" href="components/bootstrap.css">
+	<link rel="stylesheet" href="components/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="css/mystyle.css">
 </head>
 <body>
-	<section class="container">
-		<header class="headBanner" >
-			<div class="title">
-				<h1 class="tText" >
-					<span class="firstHalf"> Win</span>nounce
-				</h1>
-				<h3 class="subTitle">
+	<section class="container ">
+		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 ">
+		<div class="panel panel-primary loginView loginGroup ">
+			<div class="panel-heading text-center">
+				<h2>
+					<span class="firstHalfLogin"> Win</span><span class="secHalfLogin">nounce</span>
+				</h2>
+				<h5 class="subTitle">
 					Where all the relevant information you need.
-				</h3>
+				</h5>	
 			</div>
-		</header>
-		<div class="loginView">
-			<section>
-				<aside class="loginGroup">
-					<div class="form-group">	
-						<label class="label label-default" for="username">User Name</label><br>
-						<input type="text" name="username" class="form-control" placeholder="username">
+			<div class="panel-body">
+		    	<div class="form-group">	
+						<label class="label label-default" for="username" >User Name</label><span id="errorUsername"></span><br>
+						<input type="text" name="username" id="loginUser" class="form-control" placeholder="username">
 					</div>
 					<div class="form-group">
 						<label class="label label-default" for="passwd">Password</label><br>
-						<input type="password" name="passwd" class="form-control" placeholder="password" >
+						<input type="password" name="passwd" id="loginPass" class="form-control" placeholder="password" >
 					</div>
 					<div class="pull-right">
-						<button class="btn btn-primary">login</button>
+						<button class="btn btn-primary" id="loginBtn">login</button>
 					</div>
 					<div class="clear"></div>
-				</aside>
-			</section>
+					<div><strong><h3 id="loginError"></h3></strong></div>
+			</div>
+		</div>
 		</div>
 	</section>
+
+	<script src="components/jquery/jquery.js"></script>
+	<script src="js/login.js"></script>
 </body>
 </html>
